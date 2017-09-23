@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 33
   },
   mutations: {
   	increment: state => state.count++,
@@ -22,6 +22,7 @@ const store = new Vuex.Store({
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

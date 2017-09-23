@@ -18,8 +18,8 @@
     <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
   </ul>
   <div>{{hehe}}</div>
-  <div v-on:click="clickButton()">{{hehe}}</div>
-  <input v-model="hehe" />
+  <div v-on:click="clickButton()">Click</div>
+  <input v-model="count" />
 </div>
 </template>
 
@@ -34,12 +34,12 @@ export default {
   },
   computed: {
     count() {
-      return store.state.count
+      return this.$store.state.count*this.hehe
     }
   },
   methods: {
     clickButton: function(event) {
-      store.commit('increment')
+      this.$store.commit('increment')
     }
   }
 }
