@@ -13,8 +13,13 @@ const store = new Vuex.Store({
     count: 33
   },
   mutations: {
-  	increment: state => state.count++,
-    decrement: state => state.count--
+    increment: state => state.count++,
+    decrement: state => state.count--,
+    SET: (state, payload) => state.count = payload
+  },
+  actions: {
+    setCount: (context, payload) => context.commit("SET", payload),
+    increment: (context) => context.commit("increment")
   }
 })
 
@@ -24,5 +29,7 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
