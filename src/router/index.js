@@ -5,9 +5,8 @@ import Hello2 from '@/components/Hello2'
 
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
+const router = new Router({
+  routes: [{
       path: '/',
       name: 'Hello',
       component: Hello
@@ -19,3 +18,13 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach(function(to, from, next) {
+  if (to.path === '/forbidden') {
+    next('/haha')
+  } else {
+    next()
+  }
+})
+
+export default router;
