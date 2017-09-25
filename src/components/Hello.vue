@@ -10,6 +10,10 @@
   </ul>
   <div v-for="item in items">{{item}}</div>
   <a href="#haha">Haha?</a>
+  <div v-on:click="showModal()">MOOODAAALLL?</div>
+  <transition name="fade">
+  <div v-show="modal" class="modal" v-on:click="closeModal()">HAHAHAHAHAHAHAHA</div>
+</transition>
 </div>
 </template>
 
@@ -18,6 +22,7 @@ export default {
   name: 'hello',
   data() {
     return {
+      modal: false,
       msg: 'Welcome to Your Vue.js App',
       hehe: 55,
       items: ['1', '2', '3']
@@ -34,6 +39,12 @@ export default {
     }
   },
   methods: {
+    showModal: function() {
+      this.modal = true;
+    },
+    closeModal: function() {
+      this.modal = false;
+    },
     clickButton: function(event) {
       this.$store.dispatch('increment')
     },
@@ -47,6 +58,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
 .omg {
     cursor: pointer;
     user-select: none;
@@ -66,6 +84,14 @@ ul {
     }
 }
 
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+}
 a {
     color: #42b983;
 }
