@@ -1,5 +1,5 @@
 <template>
-<div class="hello">
+<div class="hello2">
   <h1>{{ msg }}</h1>
   <h2>Essential Links</h2>
   <div>{{count}}</div>
@@ -9,7 +9,7 @@
     <li>hehe</li>
   </ul>
   <div v-for="item in items">{{item}}</div>
-  <a href="#haha">Haha?</a>
+  <a href="#">lol?</a>
 </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Welcome to Hello 2',
       hehe: 55,
       items: ['1', '2', '3']
     }
